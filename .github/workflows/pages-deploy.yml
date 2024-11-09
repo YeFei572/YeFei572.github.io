@@ -64,7 +64,7 @@ jobs:
           echo "$SECRET_KEY" > ~/.ssh/id_rsa
           echo $SECRET_KEY
           chmod 600 ~/.ssh/id_rsa
-          scp -r ./_site/* root@1.12.48.38:/root/
+          scp -P 44456 -r ./_site/* root@$REMOTE_HOST:/root/
         # echo "Removing /var/www/$USER_NAME/blog"
         # ssh $USER_NAME@$IP "rm -f /var/www/$USER_NAME/blog || echo 'no such directory.'"
 
