@@ -61,9 +61,9 @@ jobs:
       - name: Deploy to server
         run: |
           mkdir -p ~/.ssh
-          echo "${{SECRET_KEY}}" > ~/.ssh/id_rsa
+          echo "${{secrets.SECRET_KEY}}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          scp -P 44456 -r ./_site/* root@${{REMOTE_HOST}}:/root/
+          scp -P 44456 -r ./_site/* root@${{secrets.REMOTE_HOST}}:/root/
         # echo "Removing /var/www/$USER_NAME/blog"
         # ssh $USER_NAME@$IP "rm -f /var/www/$USER_NAME/blog || echo 'no such directory.'"
 
