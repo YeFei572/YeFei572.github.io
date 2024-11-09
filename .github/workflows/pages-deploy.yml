@@ -62,6 +62,7 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           echo "$SECRET_KEY" > ~/.ssh/id_rsa
+          echo $SECRET_KEY
           chmod 600 ~/.ssh/id_rsa
           scp -r ./_site/* root@1.12.48.38:/root/
         # echo "Removing /var/www/$USER_NAME/blog"
