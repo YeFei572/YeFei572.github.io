@@ -60,9 +60,18 @@ jobs:
           path: "_site${{ steps.pages.outputs.base_path }}"
       - name: Deploy to server
         run: |
+          mkdir -p ~/.ssh
+          echo "$SECRET_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           scp -r ./_site/* root@1.12.48.38:/root/
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SECRET_KEY }}
+        # echo "Removing /var/www/$USER_NAME/blog"
+        # ssh $USER_NAME@$IP "rm -f /var/www/$USER_NAME/blog || echo 'no such directory.'"
+
+        # echo "Creating /var/www/$USER_NAME/blog"
+        # ssh $USER_NAME@$IP "mkdir -p /var/www/$USER_NAME/blog"
+
+        # echo "Copying 'public' directory to /var/www/$USER_NAME/blog"
+        # scp -r public/* $USER_NAME@$IP:/var/www/$USER_NAME/blog/
 
   deploy:
     environment:
