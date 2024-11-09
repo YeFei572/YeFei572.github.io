@@ -60,12 +60,13 @@ jobs:
           path: "_site${{ steps.pages.outputs.base_path }}"
       - name: Deploy to server
         uses: easingthemes/ssh-deploy@main
-        SSH_PRIVATE_KEY: ${{ secrets.SECRET_KEY }}
-        SOURCE: ./_site/
-        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-        REMOTE_PORT: 44456
-        REMOTE_USER: root
-        TARGET: /root/
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SECRET_KEY }}
+          SOURCE: ./_site/
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_PORT: 44456
+          REMOTE_USER: root
+          TARGET: /root/
 
   deploy:
     environment:
