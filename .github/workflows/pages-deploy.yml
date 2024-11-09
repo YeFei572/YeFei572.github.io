@@ -44,11 +44,6 @@ jobs:
         with:
           ruby-version: 3.3
           bundler-cache: true
-      - name: Install dependencies
-        run: |
-          gem install bundler
-          bundle install
-
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
@@ -63,16 +58,11 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
-      - name: Push to gh-pages branch
+      - name: Deploy to server
         run: |
-          git config --global user.name "YeFei572"
-          git config --global user.email "572yefei@163.com"
-          git checkout --orphan gh-pages
-          git rm -rf .
-          cp -R _site/* .
-          git add .
-          git commit -m "Deploy built site"
-          git push https://github-actions:${{ secrets.ACTION_TOKENS }}@github.com/YeFei572/yefei572.github.io.git gh-pages --force
+          scp -r ./_site/* root@1.12.48.38:/root/
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SECRET_KEY }}
 
   deploy:
     environment:
