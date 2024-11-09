@@ -72,7 +72,7 @@ jobs:
           cp -R _site/* .
           git add .
           git commit -m "Deploy built site"
-          git push https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/YeFei572/yefei572.github.io.git gh-pages --force
+          git push https://github-actions:${{ secrets.ACTION_TOKENS }}@github.com/YeFei572/yefei572.github.io.git gh-pages --force
 
   deploy:
     environment:
