@@ -59,19 +59,13 @@ jobs:
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
       - name: Deploy to server
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{secrets.SECRET_KEY}}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          scp -P 44456 -r ./_site/* root@${{secrets.REMOTE_HOST}}:/root/
-        # echo "Removing /var/www/$USER_NAME/blog"
-        # ssh $USER_NAME@$IP "rm -f /var/www/$USER_NAME/blog || echo 'no such directory.'"
-
-        # echo "Creating /var/www/$USER_NAME/blog"
-        # ssh $USER_NAME@$IP "mkdir -p /var/www/$USER_NAME/blog"
-
-        # echo "Copying 'public' directory to /var/www/$USER_NAME/blog"
-        # scp -r public/* $USER_NAME@$IP:/var/www/$USER_NAME/blog/
+        uses: easingthemes/ssh-deploy@main
+        SSH_PRIVATE_KEY: ${{ secrets.SECRET_KEY }}
+        SOURCE: _site/*
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_PORT: 44456
+        REMOTE_USER: root
+        TARGET: /root/
 
   deploy:
     environment:
