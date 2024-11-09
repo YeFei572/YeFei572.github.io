@@ -5,7 +5,7 @@ categories: 技术分享
 title:  "使用docker+gradle打包部署多模块springboot项目到Ubuntu服务器"
 ---
 
-> 有一段时间没写博客了, 最近比较忙. 前些日子朋友说想学docker, 本博客就是通过docker部署到Ubuntu服务器上的, docker可以看成一个虚拟机, 对于低配置服务器效果更加明显, 资源合理运用了. 至于更深层的好处可以去[docker中文文档](http://docs.docker-cn.com/) 看看, 这个大家应该很开心, 因为是中文, 讲的很细.
+> 有一段时间没写博客了, 最近比较忙. 前些日子朋友说想学docker, 本博客就是通过docker部署到Ubuntu服务器上的, docker可以看成一个虚拟机, 对于低配置服务器效果更加明显, 资源合理运用了. 至于更深层的好处可以去[docker中文文档](https://docs.docker-cn.com/) 看看, 这个大家应该很开心, 因为是中文, 讲的很细.
 
 废话不多说了,开整:
 
