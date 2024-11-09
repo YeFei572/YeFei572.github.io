@@ -63,7 +63,7 @@ jobs:
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SECRET_KEY }}
           # 复制操作的参数。"-avzr --delete"意味部署时清空服务器目标目录下的文件
-          ARGS: "-avz --delete"
+          # ARGS: "-avz --delete"
           SOURCE: ./_site/
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_PORT: 44456
