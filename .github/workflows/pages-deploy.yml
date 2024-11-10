@@ -67,8 +67,14 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "_site${{ steps.pages.outputs.base_path }}"
           target: /usr/share/nginx/html/
-          # target: ~/test/
-
+      - name: Reload Nginx
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: nginx -s reload
   deploy:
     environment:
       name: github-pages
