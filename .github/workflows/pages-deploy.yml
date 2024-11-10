@@ -59,16 +59,14 @@ jobs:
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
       - name: Deploy to server
-        uses: easingthemes/ssh-deploy@main
+        uses: appleboy/scp-action@v0.1.7
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          # 复制操作的参数。"-avzr --delete"意味部署时清空服务器目标目录下的文件
-          # ARGS: "-avz --delete"
-          SOURCE: ./_site/
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_PORT: 44456
-          REMOTE_USER: root
-          TARGET: /root/test
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "./_sites/*"
+          target: "/root/test/"
 
   deploy:
     environment:
