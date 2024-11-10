@@ -65,7 +65,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: "_site${{ steps.pages.outputs.base_path }}"
+          source: "${{ steps.pages.outputs.base_path }}"
           target: ~/test/
 
   deploy:
