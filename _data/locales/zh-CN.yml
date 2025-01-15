@@ -43,7 +43,7 @@ copyright:
     link: https://creativecommons.org/licenses/by/4.0/
 
   # Displayed in the footer
-  brief: 保留部分权利，备案号：<a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2021019215号-1</a>  <a href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>   本网站由 <img style='width:40px;' alt="又拍云" src="https://pic.v2ss.cn/qiniuyun/uplog.png" /> 提供CDN加速/云存储服务</a>
+  brief: 保留部分权利，备案号：<a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2021019215号-1</a> <br/> <a href="https://icp.gov.moe/?keyword=20250102" target="_blank">萌ICP备20250102号</a> <br/> <a href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>   本网站由 <img style='width:40px;' alt="又拍云" src="https://pic.v2ss.cn/qiniuyun/uplog.png" /> 提供CDN加速/云存储服务</a>
   verbose: >-
     除非另有说明，本网站上的博客文章均由作者按照知识共享署名 4.0 国际 (CC BY 4.0) 许可协议进行授权。
 
